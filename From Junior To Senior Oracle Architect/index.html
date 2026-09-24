@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oracle Career Roadmap | Junior to Senior Masterclass</title>
+    <!-- Google Fonts: Cairo & Fira Code -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-primary: #0a0d14;
+            --bg-secondary: #121824;
+            --card-bg: rgba(22, 30, 46, 0.7);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --accent-oracle: #ff0000;
+            --accent-cyan: #00f2fe;
+            --accent-blue: #4facfe;
+            --accent-purple: #7f00ff;
+            --accent-emerald: #10b981;
+            --accent-amber: #f59e0b;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --glow-color: rgba(79, 172, 254, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(79, 172, 254, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(127, 0, 255, 0.05) 0%, transparent 40%);
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--card-border);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-blue);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* Header / Hero Section */
+        header {
+            text-align: center;
+            padding: 4rem 1rem 3rem 1rem;
+            position: relative;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            backdrop-filter: blur(12px);
+            margin-bottom: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple), var(--accent-oracle));
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            background: rgba(79, 172, 254, 0.1);
+            border: 1px solid rgba(79, 172, 254, 0.3);
+            color: var(--accent-cyan);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            letter-spacing: 0.5px;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p.hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto 2rem auto;
+            font-weight: 400;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--card-border);
+            padding: 1.2rem;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-3px);
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--accent-cyan);
+            font-family: 'Fira Code', monospace;
+        }
+
+        .stat-label {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        /* Section Headings */
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin: 3.5rem 0 2rem 0;
+            color: var(--text-main);
+        }
+
+        .section-title i {
+            color: var(--accent-cyan);
+            background: rgba(0, 242, 254, 0.1);
+            padding: 0.8rem;
+            border-radius: 12px;
+            font-size: 1.4rem;
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            h1 { font-size: 2rem; }
+        }
+
+        /* Card Component */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .card:hover {
+            border-color: rgba(79, 172, 254, 0.4);
+            box-shadow: 0 10px 30px var(--glow-color);
+            transform: translateY(-4px);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .card-title i {
+            color: var(--accent-blue);
+        }
+
+        .tag {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .tag-core { background: rgba(245, 158, 11, 0.15); color: var(--accent-amber); border: 1px solid rgba(f5, 158, 11, 0.3); }
+        .tag-cloud { background: rgba(0, 242, 254, 0.15); color: var(--accent-cyan); border: 1px solid rgba(0, 242, 254, 0.3); }
+        .tag-adv { background: rgba(127, 0, 255, 0.15); color: var(--accent-purple); border: 1px solid rgba(127, 0, 255, 0.3); }
+
+        /* Custom Content Lists */
+        ul.styled-list {
+            list-style: none;
+        }
+
+        ul.styled-list li {
+            position: relative;
+            padding-right: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+            font-size: 0.98rem;
+        }
+
+        ul.styled-list li::before {
+            content: '\f058';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            top: 2px;
+            color: var(--accent-emerald);
+        }
+
+        ul.styled-list li strong {
+            color: var(--text-main);
+        }
+
+        /* Comparison Table Section */
+        .table-wrapper {
+            overflow-x: auto;
+            border-radius: 16px;
+            border: 1px solid var(--card-border);
+            margin-top: 1.5rem;
+        }
+
+        table.comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: right;
+            font-size: 0.95rem;
+            background: var(--card-bg);
+        }
+
+        table.comparison-table th {
+            background: rgba(255, 255, 255, 0.04);
+            padding: 1.2rem 1.5rem;
+            color: var(--accent-cyan);
+            font-weight: 700;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        table.comparison-table td {
+            padding: 1.2rem 1.5rem;
+            border-bottom: 1px solid var(--card-border);
+            color: var(--text-muted);
+        }
+
+        table.comparison-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-main);
+        }
+
+        /* Timeline Section */
+        .timeline {
+            position: relative;
+            padding-right: 2rem;
+            margin-top: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 10px;
+            bottom: 10px;
+            width: 3px;
+            background: linear-gradient(180deg, var(--accent-cyan), var(--accent-purple), var(--accent-emerald));
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            right: -2.4rem;
+            top: 5px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--bg-primary);
+            border: 3px solid var(--accent-cyan);
+            box-shadow: 0 0 10px var(--accent-cyan);
+        }
+
+        .timeline-time {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            color: var(--accent-cyan);
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: var(--text-main);
+        }
+
+        /* Code Block Mockup */
+        .code-box {
+            background: #06090e;
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 1rem;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            color: #a5b4fc;
+            margin-top: 1rem;
+            direction: ltr;
+            text-align: left;
+            overflow-x: auto;
+        }
+
+        .code-box span.keyword { color: #f472b6; }
+        .code-box span.func { color: #38bdf8; }
+        .code-box span.comment { color: #6b7280; font-style: italic; }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 4rem;
+            border-top: 1px solid var(--card-border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Action Floating Button */
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+            color: #000;
+            padding: 0.9rem 1.6rem;
+            border-radius: 50px;
+            font-weight: 800;
+            box-shadow: 0 10px 25px rgba(0, 242, 254, 0.4);
+            cursor: pointer;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            text-decoration: none;
+        }
+
+        .floating-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 242, 254, 0.6);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- HEADER / HERO -->
+        <header>
+            <span class="badge"><i class="fa-solid fa-rocket"></i> Master Class Roadmap</span>
+            <h1>خطة التحول التقني: من Junior إلى Senior Oracle Architect</h1>
+            <p class="hero-subtitle">دليل شامل ومصمم بأسلوب احترافي للجمع بين بيئتي أوراكل التقليدية (EBS R12) والسحابية (Fusion Cloud & OIC) للتفوق في سوق العمل.</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">6 - 9</div>
+                    <div class="stat-label">أشهر للخطة العملية</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">EBS + Fusion</div>
+                    <div class="stat-label">الربط المتوازي للتطبيقات</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">OIC & APIs</div>
+                    <div class="stat-label">محور التكامل الحديث</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">Tuning</div>
+                    <div class="stat-label">تحسين أداء قواعد البيانات</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- MAIN ROADMAP STAGES -->
+        <div class="section-title">
+            <i class="fa-solid fa-map-location-dot"></i>
+            <span>مراحل خطة التطور (Execution Phases)</span>
+        </div>
+
+        <div class="timeline">
+
+            <!-- Phase 1 -->
+            <div class="timeline-item">
+                <div class="timeline-time">PHASE 01 | الشهر 1 - 2</div>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title"><i class="fa-solid fa-gauge-high"></i> احتراف تحسين الأداء (PL/SQL & SQL Tuning)</div>
+                        <span class="tag tag-core">Core Foundation</span>
+                    </div>
+                    <p style="color: var(--text-muted); margin-bottom: 1rem;">الانتقال من مرحلة "كتابة كود يعمل" إلى "تصميم كود فائق السرعة يعالج ملايين السجلات".</p>
+                    <ul class="styled-list">
+                        <li><strong>Execution Plans & AutoTrace:</strong> قراءة وتحليل خطط تنفيذ الاستعلامات ومعرفة كيفية تفادي الـ Full Table Scans.</li>
+                        <li><strong>Advanced Indexing Strategies:</strong> استخدام الـ B-Tree, Bitmap, و Function-Based Indexes في الأماكن الصحيحة.</li>
+                        <li><strong>Bulk Processing Mastery:</strong> استخدام <code>BULK COLLECT</code> و <code>FORALL</code> لتقليل الـ Context Switching بين موتور الـ SQL والـ PL/SQL.</li>
+                        <li><strong>Trace Tools:</strong> استخدام أدوات الـ <code>TKPROF</code> والـ <code>DBMS_PROFILER</code> لاكتشاف الاختناقات (Bottlenecks).</li>
+                    </ul>
+                    <div class="code-box">
+                        <span class="comment">-- Example: Bulk Fetch with LIMIT clause for high memory efficiency</span><br>
+                        <span class="keyword">OPEN</span> emp_cursor;<br>
+                        <span class="keyword">LOOP</span><br>
+                        &nbsp;&nbsp;<span class="keyword">FETCH</span> emp_cursor <span class="keyword">BULK COLLECT INTO</span> l_emp_tbl <span class="keyword">LIMIT</span> 1000;<br>
+                        &nbsp;&nbsp;<span class="keyword">EXIT WHEN</span> l_emp_tbl.COUNT = 0;<br>
+                        &nbsp;&nbsp;<span class="comment">-- Process batch efficiently</span><br>
+                        <span class="keyword">END LOOP;</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 2 -->
+            <div class="timeline-item">
+                <div class="timeline-time">PHASE 02 | الشهر 3 - 4</div>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title"><i class="fa-solid fa-chart-pie"></i> أدوات التقارير والبيانات في أوراكل فيوجن (Fusion Reporting Ecosystem)</div>
+                        <span class="tag tag-cloud">Fusion Cloud</span>
+                    </div>
+                    <ul class="styled-list">
+                        <li><strong>Fusion BI Publisher (Data Models):</strong> بناء الـ Data Models بكتابة SQL Queries متطورة مع تفعيل الـ Data Security واستخدام الـ Bursting لإرسال التقارير أوتوماتيكياً.</li>
+                        <li><strong>OTBI (Oracle Transactional Business Intelligence):</strong> بناء التحليلات السريعة للـ Business Users باستخدام الـ Subject Areas مع الـ Cross-Subject Analysis.</li>
+                        <li><strong>BICC (BI Cloud Connector):</strong> استخراج الحجم الضخم من البيانات (Bulk Extraction) بجدولة الـ PVOs للأنظمة الخارجية.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Phase 3 -->
+            <div class="timeline-item">
+                <div class="timeline-time">PHASE 03 | الشهر 5 - 6</div>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title"><i class="fa-solid fa-cloud-arrow-up"></i> أدوات الربط والتكامل (Integrations & Data Loading)</div>
+                        <span class="tag tag-adv">Advanced Integration</span>
+                    </div>
+                    <ul class="styled-list">
+                        <li><strong>FBDI & HDL:</strong> تحضير رفع البيانات الضخمة في Fusion عبر ملفات الـ CSV والـ <code>.dat</code> للموديولات المختلفة (ERP & HCM).</li>
+                        <li><strong>REST & SOAP APIs:</strong> تجربة الـ Fusion Endpoints عبر Postman وكتابة أجهزة استدعاء آمنة.</li>
+                        <li><strong>Oracle Integration Cloud (OIC):</strong> التعرف على الـ Adapters (ERP Cloud Adapter, REST, FTP), بناء الـ Integrations (App-Driven / Scheduled), وتوجيه البيانات بـ Data Mapping.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Phase 4 -->
+            <div class="timeline-item">
+                <div class="timeline-time">PHASE 04 | الشهر 7 - 8</div>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title"><i class="fa-solid fa-laptop-code"></i> بناء التطبيقات والواجهات الحديثة (Modern UI Extensions)</div>
+                        <span class="tag tag-cloud">Apps & UI</span>
+                    </div>
+                    <ul class="styled-list">
+                        <li><strong>Oracle APEX & ORDS:</strong> بناء تطبيقات سريعة ومتطورة وربطها إما بـ EBS أو Fusion كـ Side-by-Side Extensions.</li>
+                        <li><strong>Visual Builder Studio (VBS) & Redwood:</strong> تعديل وتخصيص شاشات أوراكل الحديثة بـ Business Rules وبناء مكونات تفاعلية.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Phase 5 -->
+            <div class="timeline-item">
+                <div class="timeline-time">PHASE 05 | الشهر 9</div>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title"><i class="fa-solid fa-sitemap"></i> الهندسة المعمارية والمهارات الإدارية (Architecture & Business)</div>
+                        <span class="tag tag-core">Senior Mindset</span>
+                    </div>
+                    <ul class="styled-list">
+                        <li><strong>Business Cycles Understanding:</strong> فهم دورات العمل الكاملة من بداية العملية الإدارية إلى شجرة الحسابات (P2P, O2C, HCM Life Cycle).</li>
+                        <li><strong>Technical Design Documents:</strong> كتابة وثائق التصميم المعماري مثل <code>MD070</code> في EBS و <code>TD Documents</code> في Fusion.</li>
+                        <li><strong>DevOps & Source Control:</strong> حفظ وتتبع تطويرات النظام وكود الـ SQL/OIC داخل منصات **Git (GitHub/GitLab)**.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- FUSION REPORTING DEEP DIVE SECTION -->
+        <div class="section-title">
+            <i class="fa-solid fa-layer-group"></i>
+            <span>مقارنة أدوات استخراج البيانات في Fusion Cloud</span>
+        </div>
+
+        <div class="table-wrapper">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>الأداة (Tool)</th>
+                        <th>طريقة العمل (Mechanism)</th>
+                        <th>المدخلات (Inputs)</th>
+                        <th>حالة الاستخدام المثالية (Best Use Case)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong style="color: var(--text-main);">OTBI Reports</strong></td>
+                        <td>Drag & Drop (بدون كود)</td>
+                        <td>Subject Areas جاهزة</td>
+                        <td>التقارير والتحليلات اليومية السريعة للمستخدمين غير التقنيين.</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="color: var(--text-main);">BI Publisher</strong></td>
+                        <td>SQL Queries + RTF/Excel Templates</td>
+                        <td>Data Models تخصيصية</td>
+                        <td>التقارير الرسمية والمطبوعة ذات التصميم المعقد (Payslips, Invoices).</td>
+                    </tr>
+                    <tr>
+                        <td><strong style="color: var(--text-main);">BICC Connector</strong></td>
+                        <td>Bulk Extraction (تصدير كتل)</td>
+                        <td>Public View Objects (PVOs)</td>
+                        <td>سحب كميات بيانات ضخمة لبناء Data Warehouses أو الربط مع Power BI.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- EBS VS FUSION COMPARISON -->
+        <div class="section-title">
+            <i class="fa-solid fa-arrows-split-up-and-left"></i>
+            <span>الانتقال من EBS R12 إلى Fusion Cloud</span>
+        </div>
+
+        <div class="grid-2">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title"><i class="fa-solid fa-server" style="color: var(--accent-amber);"></i> بيئة Oracle EBS R12</div>
+                    <span class="tag tag-core">On-Premise</span>
+                </div>
+                <ul class="styled-list">
+                    <li><strong>Database Access:</strong> وصول مباشر للجداول والـ DB Packages.</li>
+                    <li><strong>Integrations:</strong> DB Links, Interface Tables, Concurrent Programs.</li>
+                    <li><strong>Customizations:</strong> OAF Pages, Oracle Forms, PL/SQL Custom Packages.</li>
+                    <li><strong>Reporting:</strong> RDF Reports, BI Publisher, Discoverer.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title"><i class="fa-solid fa-cloud" style="color: var(--accent-cyan);"></i> بيئة Oracle Fusion Cloud</div>
+                    <span class="tag tag-cloud">SaaS / Cloud</span>
+                </div>
+                <ul class="styled-list">
+                    <li><strong>Database Access:</strong> لا يوجد وصول مباشر؛ التعامل عبر Data Models/APIs.</li>
+                    <li><strong>Integrations:</strong> REST/SOAP APIs, OIC, FBDI, HDL.</li>
+                    <li><strong>Customizations:</strong> Visual Builder Studio (VBS), APEX Extensions.</li>
+                    <li><strong>Reporting:</strong> OTBI Analysis, BI Publisher, BICC Extraction.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer>
+            <p>Oracle Developer Masterclass Presentation | Developed with <i class="fa-solid fa-heart" style="color: var(--accent-oracle);"></i> for Mohamed El-Kazzaz</p>
+        </footer>
+
+    </div>
+
+    <!-- Floating Action Button -->
+    <button class="floating-btn" onclick="window.print()">
+        <i class="fa-solid fa-print"></i> طباعة / حفظ PDF
+    </button>
+
+</body>
+</html>
